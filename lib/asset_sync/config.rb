@@ -174,7 +174,7 @@ module AssetSync
 
 
     def fog_options
-      options = { :provider => fog_provider }
+      options = { :provider => fog_provider, :path_style => true }
       if aws?
         options.merge!({
           :aws_access_key_id => aws_access_key_id,
@@ -199,7 +199,7 @@ module AssetSync
       end
 
       options.merge!({:region => fog_region}) if fog_region && !rackspace?
-      options.merge!({:path_stype => fog_path_style}) if fog_path_style
+      # options.merge!({:path_stype => fog_path_style}) if fog_path_style
       return options
     end
 
