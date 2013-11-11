@@ -24,6 +24,7 @@ module AssetSync
     attr_accessor :fog_provider          # Currently Supported ['AWS', 'Rackspace']
     attr_accessor :fog_directory         # e.g. 'the-bucket-name'
     attr_accessor :fog_region            # e.g. 'eu-west-1'
+    attr_accessor :fog_path_style        # Set true for using path style uploads (e.g. https://aws.amazon.com/the-bucket-name)
 
     # Amazon AWS
     attr_accessor :aws_access_key_id, :aws_secret_access_key, :aws_reduced_redundancy
@@ -48,6 +49,7 @@ module AssetSync
 
     def initialize
       self.fog_region = nil
+      self.fog_path_style = false
       self.existing_remote_files = 'keep'
       self.gzip_compression = false
       self.manifest = false
@@ -135,6 +137,7 @@ module AssetSync
       self.fog_provider           = yml["fog_provider"]
       self.fog_directory          = yml["fog_directory"]
       self.fog_region             = yml["fog_region"]
+      self.fog_path_style         = yml["fog_path_style"]
       self.aws_access_key_id      = yml["aws_access_key_id"]
       self.aws_secret_access_key  = yml["aws_secret_access_key"]
       self.aws_reduced_redundancy = yml["aws_reduced_redundancy"]
