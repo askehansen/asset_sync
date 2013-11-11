@@ -199,6 +199,7 @@ module AssetSync
       end
 
       options.merge!({:region => fog_region}) if fog_region && !rackspace?
+      options.merge!({:path_stype => fog_path_style}) if fog_path_style
       return options
     end
 
