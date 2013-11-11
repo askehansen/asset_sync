@@ -16,7 +16,7 @@ module AssetSync
           config.fog_provider = ENV['FOG_PROVIDER'] if ENV.has_key?('FOG_PROVIDER')
           config.fog_directory = ENV['FOG_DIRECTORY'] if ENV.has_key?('FOG_DIRECTORY')
           config.fog_region = ENV['FOG_REGION'] if ENV.has_key?('FOG_REGION')
-          config.fog_path_style = ENV['FOG_PATH_STYLE'] if ENV.has_key?('FOG_PATH_STYLE')
+          config.fog_path_style = ENV['FOG_PATH_STYLE'] == true  if ENV.has_key?('FOG_PATH_STYLE')
 
           config.aws_access_key_id = ENV['AWS_ACCESS_KEY_ID'] if ENV.has_key?('AWS_ACCESS_KEY_ID')
           config.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY'] if ENV.has_key?('AWS_SECRET_ACCESS_KEY')
